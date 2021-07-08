@@ -1,0 +1,103 @@
+.navbar {
+  .nav-toggler-container {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: $dark-color;
+    position: fixed;
+    z-index: 2;
+    right: 20px;
+    bottom: 20px;
+    cursor: pointer;
+    display: none;
+    .nav-toggler {
+      @include hamburger(23px, 3px, 4px, #fff);
+    }
+  }
+
+  .nav-link {
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 100%;
+      height: 4px;
+      background-color: $secondary-color;
+      transform-origin: right;
+      transition: transform 0.4s;
+      transform: scaleX(0);
+    }
+
+    &.active::after {
+      transform: none;
+    }
+
+    &:not(.active):hover::after {
+      transform-origin: left;
+      transform: scaleX(1);
+    }
+  }
+
+  .login-icon .nav-link span {
+    padding-right: 0.5rem;
+  }
+
+  .nav-link {
+    color: $dark-color;
+  }
+}
+
+.logo {
+  position: absolute;
+  top: 1rem;
+  left: 3rem;
+  z-index: 2;
+}
+
+@media screen and (max-width: 600px) {
+  .navbar {
+    overflow: hidden;
+    .nav-toggler-container {
+      display: flex;
+      &.active {
+        .nav-toggler {
+          transform: rotate(180deg);
+          &::before {
+            transform: translateY(7px) rotate(-45deg);
+          }
+
+          span {
+            transform: translateX(-100px);
+          }
+
+          &::after {
+            transform: translateY(-7px) rotate(45deg);
+          }
+        }
+      }
+    }
+
+    .nav {
+      position: fixed;
+      bottom: 0;
+      height: 350px;
+      left: 100px;
+      right: 0;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #727787;
+      z-index: 1;
+      clip-path: circle(10% at bottom right);
+      backface-visibility: hidden; // To remove glitch
+      transition: clip-path 0.3s;
+
+      &.active {
+        clip-path: circle(150% at bottom right);
+      }
+    }
+
+    .nav-link {
+      color: #fff;
+    }
+  }
+}

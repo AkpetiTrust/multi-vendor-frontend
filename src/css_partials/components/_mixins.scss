@@ -1,0 +1,38 @@
+@mixin hamburger($width, $height, $space, $color) {
+  display: inline-block;
+  cursor: pointer;
+  transition: transform 0.4s;
+  &::before {
+    content: "";
+    display: block;
+    width: $width;
+    height: $height;
+    background-color: $color;
+    transition: transform 0.4s 0.3s;
+  }
+
+  span {
+    display: block;
+    width: $width;
+    height: $height;
+    background-color: $color;
+    margin: $space 0;
+    transition: transform 0.4s 0.3s;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    width: $width;
+    height: $height;
+    background-color: $color;
+    transition: transform 0.4s 0.3s;
+  }
+}
+
+@mixin button($background, $color, $radius) {
+  font-weight: 700;
+  background-color: $background;
+  color: $color;
+  border-radius: $radius;
+}

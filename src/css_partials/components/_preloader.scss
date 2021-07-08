@@ -1,0 +1,59 @@
+.preloader {
+  @extend .center;
+  position: fixed;
+  background-color: $dark-color;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  color: #fff;
+  overflow: hidden;
+  transform-origin: left;
+  animation: disappear 0.3s linear 4s 1 forwards;
+  z-index: 3;
+
+  .divider {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    div {
+      height: 100vh;
+      background-color: #fff;
+      width: 100%;
+      &:nth-child(1) {
+        transform: translateY(-100%);
+        animation: slideDown 1s ease-in-out 3s 1 forwards;
+      }
+      &:nth-child(2) {
+        transform: translateY(100%);
+        animation: slideDown 1s ease-in-out 3s 1 forwards;
+      }
+    }
+  }
+
+  .preloader-main {
+    h2 {
+      overflow: hidden;
+      &:nth-child(2) {
+        margin: 25px 0;
+      }
+      span {
+        display: inline-block;
+        transform: translateY(100%);
+        animation: fadeUp 0.8s ease-in-out 1 forwards;
+      }
+      &:nth-child(1) span {
+        animation-delay: 1s;
+      }
+      &:nth-child(2) span {
+        animation-delay: 1.6s;
+      }
+      &:nth-child(3) span {
+        animation-delay: 2.2s;
+      }
+    }
+  }
+}
