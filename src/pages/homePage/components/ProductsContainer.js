@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { updateProductList } from "../../../redux";
+import Product from "./Product";
 
 const ProductsContainer = () => {
   const products = useSelector((state) => state.update.productList);
@@ -27,6 +28,15 @@ const ProductsContainer = () => {
             </button>
           </div>
         </form>
+      </div>
+      <div className='products-main mt-5'>
+        <div className='row g-5'>
+          {products.map((product) => (
+            <div className='col-lg-4 col-sm-12' key={product.id}>
+              <Product product={product} />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

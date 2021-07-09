@@ -1,8 +1,24 @@
 import { createStore, combineReducers } from "redux";
+// For development
+import nike from "../development_assets/nike.jpg";
+import sneaker from "../development_assets/smart-sneaker.jpg";
 
 // State
 const appState = {
-  productList: [],
+  productList: [
+    {
+      name: "Nike Sneakers",
+      price: 5000,
+      id: 1,
+      image: nike,
+    },
+    {
+      name: "Designer Sneakers",
+      price: 7000,
+      id: 2,
+      image: sneaker,
+    },
+  ],
   storeList: [],
 };
 

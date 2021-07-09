@@ -4,7 +4,7 @@
 @import "css_partials/animations";
 @import "css_partials/components/preloader";
 @import "css_partials/components/navbar";
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Roboto+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto+Mono&display=swap");
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -12,7 +12,7 @@
 
 ::-webkit-scrollbar-track {
   border-radius: 10px;
-  box-shadow: inset 0px 0px 5px $dark-color;
+  box-shadow: inset 0px 0px 3px $dark-color;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -84,6 +84,7 @@ body {
 }
 
 .products-container {
+  overflow: hidden;
   .heading {
     font-weight: 600;
     font-size: 1.2rem;
@@ -124,6 +125,94 @@ body {
   }
 }
 
+.product-card {
+  border-radius: 20px;
+  width: 100%;
+  box-shadow: 0px 0px 5px $grey-color;
+  color: $dark-color;
+  height: 360px;
+
+  &:hover {
+    .product-image {
+      transform: rotate(-2deg) translateY(-10px) scale(1.05);
+    }
+    .product-name::after {
+      transform: scaleX(1);
+    }
+  }
+
+  .product-image {
+    transition: all 0.3s;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    img {
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+    }
+  }
+
+  .product-body {
+    padding: 15px;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: -50%;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background-color: rgba(52, 89, 149, 0.5);
+      z-index: -1;
+    }
+  }
+
+  .product-name {
+    width: max-content;
+    &::after {
+      content: "";
+      display: inline-block;
+      height: 3px;
+      width: 50%;
+      background-color: $primary-color;
+      transform: scaleX(0);
+      transition: transform 0.3s;
+      transform-origin: left;
+    }
+  }
+
+  .product-name,
+  .price {
+    font-weight: 700;
+  }
+
+  .details-btn {
+    @include button($secondary-color, #fff, 10px);
+    font-weight: 600;
+    font-size: 0.8em;
+    text-decoration: none;
+    padding: 5px 8px;
+    text-align: center;
+
+    .arrow {
+      display: inline-block;
+      margin-left: 5px;
+      font-weight: 700;
+      transition: transform 0.4s;
+      transform-origin: right;
+      transform: scaleX(0);
+    }
+
+    &:hover .arrow {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+  }
+}
+
 // Media queries
 @media screen and (max-width: 600px) {
   .hero {
@@ -141,6 +230,17 @@ body {
   .products-container {
     .search-bar-container {
       justify-content: flex-start;
+    }
+  }
+
+  [data-aos="fly-in"] {
+    opacity: 0;
+    transform: translateX(-100vw) rotate(-120deg);
+    transition-property: opacity, transform;
+
+    &.aos-animate {
+      opacity: 1;
+      transform: rotate(0) translateX(0);
     }
   }
 }

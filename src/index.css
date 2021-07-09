@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Roboto+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto+Mono&display=swap");
 .center, .preloader {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -9,6 +9,10 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.light-text {
+  font-weight: 300;
 }
 
 @-webkit-keyframes fadeUp {
@@ -311,8 +315,8 @@
 
 ::-webkit-scrollbar-track {
   border-radius: 10px;
-  -webkit-box-shadow: inset 0px 0px 5px #0a0909;
-          box-shadow: inset 0px 0px 5px #0a0909;
+  -webkit-box-shadow: inset 0px 0px 3px #0a0909;
+          box-shadow: inset 0px 0px 3px #0a0909;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -392,6 +396,10 @@ body {
   font-size: 1.2rem;
 }
 
+.products-container {
+  overflow: hidden;
+}
+
 .products-container .heading {
   font-weight: 600;
   font-size: 1.2rem;
@@ -438,6 +446,116 @@ body {
   background-color: transparent;
 }
 
+.product-card {
+  border-radius: 20px;
+  width: 100%;
+  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.69);
+          box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.69);
+  color: #0a0909;
+  height: 360px;
+}
+
+.product-card:hover .product-image {
+  -webkit-transform: rotate(-2deg) translateY(-10px) scale(1.05);
+          transform: rotate(-2deg) translateY(-10px) scale(1.05);
+}
+
+.product-card:hover .product-name::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+.product-card .product-image {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.product-card .product-image img {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.product-card .product-body {
+  padding: 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card .product-body::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -50%;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: rgba(52, 89, 149, 0.5);
+  z-index: -1;
+}
+
+.product-card .product-name {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.product-card .product-name::after {
+  content: "";
+  display: inline-block;
+  height: 3px;
+  width: 50%;
+  background-color: #575a89;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+  -webkit-transform-origin: left;
+          transform-origin: left;
+}
+
+.product-card .product-name,
+.product-card .price {
+  font-weight: 700;
+}
+
+.product-card .details-btn {
+  font-weight: 700;
+  background-color: #916f2a;
+  color: #fff;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.8em;
+  text-decoration: none;
+  padding: 5px 8px;
+  text-align: center;
+}
+
+.product-card .details-btn .arrow {
+  display: inline-block;
+  margin-left: 5px;
+  font-weight: 700;
+  -webkit-transition: -webkit-transform 0.4s;
+  transition: -webkit-transform 0.4s;
+  transition: transform 0.4s;
+  transition: transform 0.4s, -webkit-transform 0.4s;
+  -webkit-transform-origin: right;
+          transform-origin: right;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+}
+
+.product-card .details-btn:hover .arrow {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+}
+
 @media screen and (max-width: 600px) {
   .hero {
     padding-top: 0;
@@ -453,6 +571,20 @@ body {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
+  }
+  [data-aos="fly-in"] {
+    opacity: 0;
+    -webkit-transform: translateX(-100vw) rotate(-120deg);
+            transform: translateX(-100vw) rotate(-120deg);
+    -webkit-transition-property: opacity, -webkit-transform;
+    transition-property: opacity, -webkit-transform;
+    transition-property: opacity, transform;
+    transition-property: opacity, transform, -webkit-transform;
+  }
+  [data-aos="fly-in"].aos-animate {
+    opacity: 1;
+    -webkit-transform: rotate(0) translateX(0);
+            transform: rotate(0) translateX(0);
   }
 }
 /*# sourceMappingURL=index.css.map */
