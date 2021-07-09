@@ -408,6 +408,36 @@ body {
   background-color: #575a89;
 }
 
+.products-container .search-bar-container {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.products-container .input-container {
+  background-color: transparent;
+  border-radius: 20px;
+  border: 1px solid #916f2a;
+  padding: 1px 10px;
+  width: 250px;
+  height: 30px;
+  font-size: 0.8em;
+}
+
+.products-container .input-container input {
+  border: 0;
+  outline: 0;
+  width: 100%;
+  background-color: transparent;
+}
+
+.products-container .input-container button {
+  border: none;
+  outline: none;
+  padding: 0;
+  background-color: transparent;
+}
+
 @media screen and (max-width: 600px) {
   .hero {
     padding-top: 0;
@@ -418,6 +448,11 @@ body {
   }
   .hero p {
     width: 100%;
+  }
+  .products-container .search-bar-container {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
   }
 }
 /*# sourceMappingURL=index.css.map */
