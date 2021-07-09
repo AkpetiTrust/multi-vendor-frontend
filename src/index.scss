@@ -6,6 +6,20 @@
 @import "css_partials/components/navbar";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Roboto+Mono&display=swap");
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  box-shadow: inset 0px 0px 5px $dark-color;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #727787;
+}
+
 body {
   font-family: "Poppins", sans-serif;
 }
@@ -66,6 +80,22 @@ body {
     margin: 0;
     font-weight: 800;
     font-size: 1.2rem;
+  }
+}
+
+.products-container {
+  .heading {
+    font-weight: 600;
+    font-size: 1.2rem;
+    width: max-content;
+
+    &::before {
+      content: "";
+      display: block;
+      height: 3px;
+      width: 50%;
+      background-color: $primary-color;
+    }
   }
 }
 

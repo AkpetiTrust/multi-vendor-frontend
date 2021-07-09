@@ -1,6 +1,7 @@
 import React from "react";
 import HeroContent from "./HeroContent";
 import ScrollDiv from "./ScrollDiv";
+import ProductsContainer from "./ProductsContainer";
 import Navbar from "../../../components/Navbar";
 import logo from "../../../images/logo.svg";
 import { Link } from "react-router-dom";
@@ -16,6 +17,7 @@ const Main = () => {
         <HeroContent />
       </div>
       <ScrollDiv />
+      <ProductsContainer />
     </div>
   );
 };
