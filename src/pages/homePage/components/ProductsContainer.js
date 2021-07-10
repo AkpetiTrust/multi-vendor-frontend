@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { updateProductList } from "../../../redux";
+import { Link } from "react-router-dom";
 import Product from "./Product";
 
 const ProductsContainer = () => {
@@ -37,6 +38,12 @@ const ProductsContainer = () => {
             </div>
           ))}
         </div>
+        <p className='mt-5 all-products-link'>
+          <Link to='/discover'>
+            VIEW ALL PRODUCTS &#10230;{" "}
+            <span data-content='VIEW ALL PRODUCTS &#10230;'></span>
+          </Link>
+        </p>
       </div>
     </div>
   );

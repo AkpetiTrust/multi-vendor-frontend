@@ -2,6 +2,8 @@ import { createStore, combineReducers } from "redux";
 // For development
 import nike from "../development_assets/nike.jpg";
 import sneaker from "../development_assets/smart-sneaker.jpg";
+import store1 from "../development_assets/store1.jpg";
+import store2 from "../development_assets/store2.jpg";
 
 // State
 const appState = {
@@ -19,7 +21,20 @@ const appState = {
       image: sneaker,
     },
   ],
-  storeList: [],
+  storeList: [
+    {
+      name: "Shoes Limited",
+      owner: "James John",
+      id: 1,
+      img: store1,
+    },
+    {
+      name: "Clothes Inc.",
+      owner: "Sarah Jane",
+      id: 2,
+      img: store2,
+    },
+  ],
 };
 
 // Actions
