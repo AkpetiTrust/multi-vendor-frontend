@@ -4,6 +4,7 @@ import ScrollDiv from "./ScrollDiv";
 import ProductsContainer from "./ProductsContainer";
 import StoresContainer from "./StoresContainer";
 import Navbar from "../../../components/Navbar";
+import Footer from "../../../components/Footer";
 import logo from "../../../images/logo.svg";
 import { Link } from "react-router-dom";
 
@@ -20,6 +21,7 @@ const Main = () => {
       <ScrollDiv />
       <ProductsContainer />
       <StoresContainer />
+      <Footer />
     </div>
   );
 };
