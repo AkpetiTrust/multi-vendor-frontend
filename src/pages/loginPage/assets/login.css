@@ -1,0 +1,85 @@
+.login-row {
+  -ms-flex-wrap: wrap-reverse;
+      flex-wrap: wrap-reverse;
+}
+
+.login-title {
+  font-weight: 800;
+  width: 80%;
+  font-size: 1.3rem;
+}
+
+.create-account-form {
+  padding: 20px;
+  -webkit-box-shadow: 0px 0px 10px rgba(35, 31, 32, 0.28);
+          box-shadow: 0px 0px 10px rgba(35, 31, 32, 0.28);
+  border-radius: 20px;
+  margin-top: 50px;
+  width: 400px;
+}
+
+.create-account-form .create-account-form-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.create-account-form .create-account-form-group div {
+  width: 100%;
+  padding-right: 30px;
+}
+
+.create-account-form .create-account-form-group div input {
+  width: 100%;
+  outline: none;
+  font-size: 0.8em;
+  margin-top: 5px;
+  background-color: transparent;
+  border-radius: 10px;
+  border: 1px solid #575a89;
+}
+
+.create-account-form .create-account-form-group div input:focus {
+  border-color: #916f2a;
+}
+
+.create-account-form button {
+  font-weight: 700;
+  background-color: #916f2a;
+  color: #fff;
+  border-radius: 15px;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 5px 0;
+}
+
+.create-account-form .switch {
+  margin-top: 20px;
+}
+
+.create-account-form .switch .login-span {
+  color: var(--bs-primary);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .create-account-form {
+    width: 100%;
+  }
+  .create-account-form .create-account-form-group {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-bottom: 20px;
+  }
+  .create-account-form .create-account-form-group div {
+    margin-bottom: 5px;
+    padding-right: 0;
+  }
+}
+/*# sourceMappingURL=login.css.map */

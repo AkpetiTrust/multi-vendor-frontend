@@ -15,7 +15,7 @@ const Main = () => {
         <Link to='/' className='logo'>
           <img src={logo} alt='' className='img-fluid' />
         </Link>
-        <Navbar />
+        <Navbar active='1' />
         <HeroContent />
       </div>
       <ScrollDiv />

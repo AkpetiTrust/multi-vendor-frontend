@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ active }) => {
+  active = Number(active);
+  let i = 1;
+
   const toggleActive = (e) => {
     document.querySelector(".nav").classList.toggle("active");
     e.currentTarget.classList.toggle("active");
@@ -16,22 +19,34 @@ const Navbar = () => {
       </span>
       <ul className='nav'>
         <li className='nav-item'>
-          <Link to='/' className='nav-link active'>
+          <Link
+            to='/'
+            className={`nav-link ${i === active ? "active" : ""}`}
+            data-index={i++}>
             HOME
           </Link>
         </li>
         <li className='nav-item'>
-          <Link to='/contact' className='nav-link'>
+          <Link
+            to='/contact'
+            className={`nav-link ${i === active ? "active" : ""}`}
+            data-index={i++}>
             CONTACT
           </Link>
         </li>
         <li className='nav-item'>
-          <Link to='/discover' className='nav-link'>
+          <Link
+            to='/discover'
+            className={`nav-link ${i === active ? "active" : ""}`}
+            data-index={i++}>
             DISCOVER
           </Link>
         </li>
         <li className='nav-item login-icon'>
-          <Link to='/login' className='nav-link'>
+          <Link
+            to='/login'
+            className={`nav-link ${i === active ? "active" : ""}`}
+            data-index={i++}>
             <span>LOGIN</span>
             <svg
               width='20'

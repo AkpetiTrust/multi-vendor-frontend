@@ -1,0 +1,73 @@
+@import "../../../css_partials/components/mixins";
+@import "../../../css_partials/variables";
+
+.login-row {
+  flex-wrap: wrap-reverse;
+}
+
+.login-title {
+  font-weight: 800;
+  width: 80%;
+  font-size: 1.3rem;
+}
+
+.create-account-form {
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(35, 31, 32, 0.28);
+  border-radius: 20px;
+  margin-top: 50px;
+  width: 400px;
+
+  .create-account-form-group {
+    display: flex;
+    margin-bottom: 40px;
+    div {
+      width: 100%;
+      padding-right: 30px;
+
+      input {
+        width: 100%;
+        outline: none;
+        font-size: 0.8em;
+        margin-top: 5px;
+        @include input(10px, $primary-color);
+
+        &:focus {
+          border-color: $secondary-color;
+        }
+      }
+    }
+  }
+
+  button {
+    @include button($secondary-color, #fff, 15px);
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 5px 0;
+  }
+
+  .switch {
+    margin-top: 20px;
+
+    .login-span {
+      color: var(--bs-primary);
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}
+
+@media screen and(max-width: 600px) {
+  .create-account-form {
+    width: 100%;
+    .create-account-form-group {
+      flex-direction: column;
+      margin-bottom: 20px;
+      div {
+        margin-bottom: 5px;
+        padding-right: 0;
+      }
+    }
+  }
+}
