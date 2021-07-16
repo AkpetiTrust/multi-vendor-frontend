@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { updateShopList } from "../../../redux";
+import updateStoreList from "../../../redux/actions/updateStoreList";
 import { Link } from "react-router-dom";
 import Store from "./Store";
 

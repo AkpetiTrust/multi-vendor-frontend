@@ -5,7 +5,7 @@ import Home from "./pages/homePage/Home";
 import Login from "./pages/loginPage/Login";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
-import { store } from "./redux";
+import store from "./redux";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
