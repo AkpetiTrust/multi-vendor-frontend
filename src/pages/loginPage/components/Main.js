@@ -6,7 +6,7 @@ import logo from "../../../images/logo.svg";
 import Createaccount from "./Createaccount";
 import { Link } from "react-router-dom";
 
-const Main = () => {
+const Main = ({ onClick }) => {
   return (
     <div className='main'>
       <div className='hero px-5'>
@@ -21,7 +21,7 @@ const Main = () => {
                 Create an account to buy and sell products, or login to your
                 account
               </h4>
-              <Createaccount />
+              <Createaccount onClick={onClick} />
             </div>
             <div className='col-lg-6 col-sm-12 center align-items-start'>
               <svg

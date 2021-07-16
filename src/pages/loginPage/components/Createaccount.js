@@ -1,6 +1,6 @@
 import React from "react";
 
-const Createaccount = () => {
+const Createaccount = ({ onClick }) => {
   return (
     <div className='create-account-form'>
       <form action=''>
@@ -26,7 +26,10 @@ const Createaccount = () => {
         </div>
         <button type='submit'>CREATE ACCOUNT</button>
         <p className='switch'>
-          Already have an account? <span className='login-span'>Login</span>
+          Already have an account?{" "}
+          <span className='login-span' onClick={onClick}>
+            Login
+          </span>
         </p>
       </form>
     </div>
