@@ -2,14 +2,29 @@ import { React, useState } from "react";
 import instance from "../../../services/axios";
 
 const Loginpopup = ({ onClick, popUpClass }) => {
+  const [loading, setLoading] = useState(false);
   const onSubmit = (e) => {
     e.preventDefault();
     let email = e.currentTarget["login-name"].value;
     let password = e.currentTarget["login-password"].value;
-    if (!(email && password)) return;
-    instance.post("/login", { email, password }).then((response) => {
-      console.log(response);
-    });
+
+    if (!(email || password)) return;
+
+    setLoading(true);
+
+    instance
+      .post("/login", { email, password })
+      .then((response) => {
+        let data = response.data;
+        localStorage.setItem("access_token", data.access_token);
+        localStorage.setItem("refresh_token", data.refresh_token);
+        setLoading(false);
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.log(error.response);
+        setLoading(false);
+      });
   };
 
   return (
@@ -39,9 +54,21 @@ const Loginpopup = ({ onClick, popUpClass }) => {
           </div>
           <div className='group'>
             <label htmlFor='login-password'>Password:</label>
-            <input type='text' name='login-password' id='login-password' />
+            <input type='password' name='login-password' id='login-password' />
           </div>
-          <button type='submit'>LOGIN</button>
+          <button type='submit'>
+            {loading ? (
+              <div className='center'>
+                <span className='loading d-flex justify-content-between'>
+                  <span>.</span>
+                  <span>.</span>
+                  <span>.</span>
+                </span>
+              </div>
+            ) : (
+              "LOGIN"
+            )}
+          </button>
           <p>
             Don’t have an account?{" "}
             <span className='signup-span' onClick={onClick}>
