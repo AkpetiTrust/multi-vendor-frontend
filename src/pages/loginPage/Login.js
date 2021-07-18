@@ -1,6 +1,7 @@
 import { React, useState } from "react";
 import Main from "./components/Main";
 import Loginpopup from "./components/Loginpopup";
+import Alert from "../../components/alert/Alert";
 
 const Login = () => {
   const [popUpClass, setPopUpClass] = useState("");
@@ -17,6 +18,11 @@ const Login = () => {
 
   return (
     <div className='login'>
+      <Alert
+        activeProp={true}
+        information='Logged in successfully'
+        danger={false}
+      />
       <Loginpopup popUpClass={popUpClass} onClick={closePopUp} />
       <Main onClick={openPopUp} />
     </div>

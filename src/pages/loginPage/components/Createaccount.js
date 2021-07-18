@@ -1,6 +1,9 @@
-import React from "react";
+import { React, useState } from "react";
+import Button from "../../../components/Button";
 
 const Createaccount = ({ onClick }) => {
+  const [loading, setLoading] = useState(false);
+
   return (
     <div className='create-account-form'>
       <form action=''>
@@ -24,7 +27,7 @@ const Createaccount = ({ onClick }) => {
             <input type='password' name='password' id='password' />
           </div>
         </div>
-        <button type='submit'>CREATE ACCOUNT</button>
+        <Button text='CREATE ACCOUNT' loading={loading} type='submit' />
         <p className='switch'>
           Already have an account?{" "}
           <span className='login-span' onClick={onClick}>

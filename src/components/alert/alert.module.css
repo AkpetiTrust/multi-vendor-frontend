@@ -1,0 +1,43 @@
+.my_alert {
+  position: fixed;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-300px);
+  transition: transform 0.5s;
+  background-color: #345995;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 15px;
+  border-radius: 8px;
+  width: 500px;
+  z-index: 9;
+}
+
+.my_alert.active {
+  transform: translateX(-50%) translateY(0);
+}
+
+.my_alert.danger {
+  background-color: #231f20;
+  border-top: 3px solid #e81313;
+}
+
+.my_alert p {
+  margin: 0;
+}
+
+.my_alert .close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 0.8em;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .my_alert {
+    width: 80%;
+  }
+}

@@ -1,8 +1,10 @@
 import { React, useState } from "react";
 import instance from "../../../services/axios";
+import Button from "../../../components/Button";
 
 const Loginpopup = ({ onClick, popUpClass }) => {
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   const onSubmit = (e) => {
     e.preventDefault();
     let email = e.currentTarget["login-name"].value;
@@ -18,11 +20,11 @@ const Loginpopup = ({ onClick, popUpClass }) => {
         let data = response.data;
         localStorage.setItem("access_token", data.access_token);
         localStorage.setItem("refresh_token", data.refresh_token);
+        setError(false);
         setLoading(false);
-        window.location.reload();
       })
       .catch((error) => {
-        console.log(error.response);
+        setError(true);
         setLoading(false);
       });
   };
@@ -56,19 +58,8 @@ const Loginpopup = ({ onClick, popUpClass }) => {
             <label htmlFor='login-password'>Password:</label>
             <input type='password' name='login-password' id='login-password' />
           </div>
-          <button type='submit'>
-            {loading ? (
-              <div className='center'>
-                <span className='loading d-flex justify-content-between'>
-                  <span>.</span>
-                  <span>.</span>
-                  <span>.</span>
-                </span>
-              </div>
-            ) : (
-              "LOGIN"
-            )}
-          </button>
+          {error && <p className='text-danger'>Invalid credentials!</p>}
+          <Button text='LOGIN' loading={loading} type='submit' />
           <p>
             Don’t have an account?{" "}
             <span className='signup-span' onClick={onClick}>
